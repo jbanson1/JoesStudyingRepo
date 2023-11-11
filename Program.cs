@@ -21,7 +21,7 @@ namespace JoesConsoleApp
 
             do
             {
-                UserInput = Console.ReadLine();
+                UserInput = Console.ReadLine().Trim();
 
                 if (UserInput.ToLower() == "yes" || UserInput.ToLower() == "no")
                 {
@@ -49,10 +49,12 @@ namespace JoesConsoleApp
                 if (UserInput.ToLower() == "yes")
                 {
                     Console.WriteLine("Tracks have been changed");
+
                 }
                 else if (UserInput.ToLower() == "no")
                 {
                     Console.WriteLine("Tracks have not been changed");
+
                 }
                 // output result
             }
