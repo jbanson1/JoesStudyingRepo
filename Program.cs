@@ -1,4 +1,6 @@
-﻿namespace JoesConsoleApp
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace JoesConsoleApp
 {
     internal class Program
     {
@@ -7,7 +9,7 @@
             // Question the user whether they want to change tracks
             Console.WriteLine("Would you like to change train tracks?");
             // recieve input
-            string UserInput = Console.ReadLine();
+            string UserInput;
             bool flag = false;
             // validate input
             // If User input not equal to Yes or No 
@@ -16,17 +18,22 @@
             //    Console.WriteLine("Try again and input only Yes or No");
             //    UserInput = Console.ReadLine();
             //}
+
             do
             {
-                Console.WriteLine("Try again and input only Yes or No");
                 UserInput = Console.ReadLine();
-                if (UserInput.ToLower() != "yes" || UserInput.ToLower() != "no")
-                {
 
-                }
-                else
+                if (UserInput.ToLower() == "yes" || UserInput.ToLower() == "no")
                 {
                     flag = true;
+
+                    ChangeTracks(UserInput);
+                }
+                else 
+                {
+                    Console.WriteLine("Try again and input only Yes or No");
+
+                    flag = false; 
                 }
             }
             while (flag == false);
@@ -34,15 +41,21 @@
             // While UserInput is not yes or no 
             // Ask user to input again yes or no
             // Ask the user to try again and input only Yes or No
-            if (UserInput.ToLower() == "yes") 
+
+
+            static void ChangeTracks(string UserInput)
             {
-                Console.WriteLine("Tracks have been changed");
+
+                if (UserInput.ToLower() == "yes")
+                {
+                    Console.WriteLine("Tracks have been changed");
+                }
+                else if (UserInput.ToLower() == "no")
+                {
+                    Console.WriteLine("Tracks have not been changed");
+                }
+                // output result
             }
-            else if (UserInput.ToLower() == "no")
-            {
-                Console.WriteLine("Tracks have not been changed");
-            }
-            // output result
 
         }
     }
